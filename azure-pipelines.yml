@@ -17,3 +17,10 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Secondary-MSInternal(b0ac6fe7-a173-4a5b-95c4-79bd322d407c)'
+    appType: 'webApp'
+    WebAppName: 'healthapp-ui'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
